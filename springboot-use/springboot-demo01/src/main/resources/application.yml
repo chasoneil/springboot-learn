@@ -1,0 +1,9 @@
+# configure port
+# server:
+  # servlet:
+    # context-path: /index
+
+# 环境切换
+spring:
+  profiles:
+    active: dev # 当前使用开发环境
