@@ -9,3 +9,7 @@ spring:
     username: glue
     password: Glue01_glue
 
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.chason.pojo # 给当前报的所有类起别名
+

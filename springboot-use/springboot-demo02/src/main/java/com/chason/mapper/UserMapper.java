@@ -11,7 +11,9 @@ import java.util.List;
  */
 public interface UserMapper {
 
-    @Select("select * from tbl_user")   // 不写配置文件
+    // 当没有配置文件的时候，使用注解也是可以的
+    // @Select("select * from tbl_user")
+
     List<User> selectAllUsers();
 
 }
