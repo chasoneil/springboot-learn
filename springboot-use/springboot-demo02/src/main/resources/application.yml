@@ -4,10 +4,29 @@ server:
 # 数据库的相关配置
 spring:
   datasource:
+    type: com.alibaba.druid.pool.DruidDataSource  # 底层使用druid连接池
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/sb?characterEncoding=utf8&useSSL=false&serverTimeZone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/sb?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
     username: glue
     password: Glue01_glue
+
+    # 连接池的配置信息
+    druid:
+      initial-size: 5 #初始化连接数
+      max-active : 30 #最大连接数
+      min-idle: 5 #最小连接
+      max-wait: 60000
+      validation-query: SELECT 1 FROM DUAL
+      min-evictable-idle-time-millis: 300000
+      test-while-idle: true
+      filters: stat,wall,slf4j
+      stat-view-servlet:
+        login-username: admin
+        login-password: admin
+        url-pattern: /druid/*
+        allow: 127.0.0.1    # IP白名单
+        reset-enable: false
+        enabled: true
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
