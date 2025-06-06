@@ -34,4 +34,8 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.chason.pojo # 给当前报的所有类起别名
 
+# 整合logback
+# logging:
+  # level:
+    # com.chason.mapper: trace # 打印mybatis的sql语句
 
