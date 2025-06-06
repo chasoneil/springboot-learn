@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.chason.mapper.UserMapper">
+
+    <select id="selectAll" parameterType="int" resultType="User">
+        select * from tbl_user
+    </select>
+
+    <select id="selectById" resultType="User">
+        select * from tbl_user where uid = #{id}
+    </select>
+
+    <insert id="save" parameterType="User">
+        insert into tbl_user
+        ( uid, uanme, password, rname, identity )
+        values
+        ( #{uid}, #{uname}, #{password}, #{rname}, 1)
+    </insert>
+
+    <update id="update" parameterType="User">
+        update tbl_user set
+        uname = #{uname} and password = #{password} and rname = #{rname} and identity = #{identity}
+        where uid = {uid}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        delete from tbl_user where uid = #{uid}
+    </delete>
+</mapper>
