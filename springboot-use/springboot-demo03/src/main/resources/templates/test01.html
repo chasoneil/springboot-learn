@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 引入这个名称空间，意味着html页面可以使用thymeleaf模板和语法 -->
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <title>Title</title>
+</head>
+<body>
+    <h3>This is test01</h3>
+    <div>第一个属性th,通过th获取属性</div>
+
+    <div>
+        字符串msg:<span th:text="${msg}"></span>
+    </div>
+
+    <div>
+        整数count:<span th:text="${count}"></span>
+    </div>
+
+    <div>
+        对象student:
+        <span>
+            id: <span th:text="${student.id}"></span>
+            name: <span th:text="${student.name}"></span>
+            age: <span th:text="${student.age}"></span>
+        </span>
+    </div>
+
+    <div>
+        List:
+        <table border="1" width="500">
+            <tr>
+                <td>编号</td>
+                <td>姓名</td>
+                <td>年龄</td>
+            </tr>
+            <!-- 使用th:each遍历 -->
+            <tr th:each="stu : ${students}">
+                <td th:text="${stu.id}"></td>
+                <td th:text="${stu.name}"></td>
+                <td th:text="${stu.age}"></td>
+            </tr>
+        </table>
+    </div>
+
+    <br><br>
+    <div>
+        向input标签中添加内容使用th:value <br>
+        <input type="text" th:value="${msg}">
+    </div>
+
+    <br><br>
+    <div>
+        也可以通过th:if来做条件判断<br>
+        <span th:if="${count} > 500">count大于500</span>
+        <span th:if="${count} <= 500">count小于等于500</span>
+    </div>
+
+    <br><br>
+    <div>
+        使用th:href实现跳转(可以跳转到指定请求)<br>
+        <a th:href="@{/jump(id=${count})}">点击跳转</a> <br>
+
+        也可以跳转到指定的JS函数<br>
+        <a href="javascript:void(0)" th:onclick="'func1(' + 123 + ')'">点击执行JS</a>
+    </div>
+
+
+<script type="text/javascript">
+    function func1(msg) {
+        alert(msg)
+    }
+</script>
+</body>
+</html>

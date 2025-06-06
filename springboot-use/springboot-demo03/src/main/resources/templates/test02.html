@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <title>Title</title>
+</head>
+<body>
+    <h3>thymeleaf 内置函数</h3>
+    <br><br>
+
+    <div>
+        字符串str1长度:
+        <span th:text="${#strings.length(str1)}"></span>
+    </div>
+    <br>
+    <div>
+        默认的时间格式：
+        <span th:text="${date}"></span>
+        <br>
+        对日期进行格式化:
+        <span th:text="${#dates.format(date,'yyyy-MM-dd HH:mm:ss')}"></span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <title>Title</title>
+</head>
+<body>
+    <h3>thymeleaf  不同作用域的取值</h3>
+    <br>
+    <div>
+        request作用域:
+        <span th:text="${msg1}"></span><br>
+
+        session作用域:
+        <span th:text="${session.msg2}"></span><br>
+
+        application作用域:
+        <span th:text="${application.msg3}"></span>
+    </div>
+
+
+</body>
+</html>
