@@ -9,6 +9,8 @@ import java.util.List;
  */
 public interface UserMapper {
 
+    List<User> selectAllByPage();
+
     List<User> selectAll();
 
     User selectById(int id);

@@ -10,6 +10,10 @@
         select * from tbl_user
     </select>
 
+    <select id="selectAllByPage" resultType="User">
+        select * from tbl_user
+    </select>
+
     <select id="selectById" resultType="User">
         select * from tbl_user where uid = #{id}
     </select>

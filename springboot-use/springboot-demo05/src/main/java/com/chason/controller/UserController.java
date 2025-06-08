@@ -2,6 +2,7 @@ package com.chason.controller;
 
 import com.chason.pojo.User;
 import com.chason.service.UserService;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,12 @@ public class UserController {
     @ResponseBody
     public List<User> findAll() {
         return userService.findAll();
+    }
+
+    @ResponseBody
+    @GetMapping("/user/page")
+    public PageInfo<User> findAllByPage(int pageNum,int pageSize) {
+        return userService.findAllUsers(pageNum, pageSize);
     }
 
     @PostMapping("/user/add")

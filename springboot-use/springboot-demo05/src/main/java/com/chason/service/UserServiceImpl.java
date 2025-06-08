@@ -2,6 +2,8 @@ package com.chason.service;
 
 import com.chason.mapper.UserMapper;
 import com.chason.pojo.User;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> findAll() {
         return userMapper.selectAll();
+    }
+
+    @Override
+    public PageInfo<User> findAllUsers(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<User> users = userMapper.selectAllByPage();
+        PageInfo<User> info = new PageInfo<>(users);
+        return info;
     }
 
     @Override
