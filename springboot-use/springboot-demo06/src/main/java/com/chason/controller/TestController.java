@@ -2,6 +2,7 @@ package com.chason.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -20,6 +21,12 @@ public class TestController {
     public String myExceptionHandler() {
         System.out.println("执行异常处理的逻辑");
         return "error/myError";   // 返回指定的页面
+    }
+
+    @ResponseBody
+    @GetMapping("/testir")
+    public String testIR() {
+        return "Test Inteceptor";
     }
 
 }

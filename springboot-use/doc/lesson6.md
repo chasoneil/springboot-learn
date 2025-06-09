@@ -11,3 +11,7 @@
 * 这两个注解的作用
 * 通过这两个注解产生Java Bean
 * 使用@Autowire 和@Qualifier让容器中有多个相同类型的对象也能被注入
+* 对象中注入对象
+
+4. Springboot中拦截器的使用
+* 怎么在springboot中配置拦截器的使用
