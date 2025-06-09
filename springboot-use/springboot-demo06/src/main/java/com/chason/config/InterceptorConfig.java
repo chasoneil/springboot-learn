@@ -1,5 +1,6 @@
 package com.chason.config;
 
+import com.chason.interceptor.LoginInterceptor;
 import com.chason.interceptor.MyInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +17,10 @@ public class InterceptorConfig implements WebMvcConfigurer {
     @Autowired
     private MyInterceptor myInterceptor;
 
+    @Autowired
+    private LoginInterceptor loginInterceptor;
+
+
     // 将拦截器注册
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -24,5 +29,10 @@ public class InterceptorConfig implements WebMvcConfigurer {
         InterceptorRegistration ir = registry.addInterceptor(myInterceptor);
         ir.addPathPatterns("/**");          // 对所有路径进行拦截
         ir.excludePathPatterns("/login");   // 对登录放行
+
+        // 注册过滤器
+        registry.addInterceptor(loginInterceptor).addPathPatterns("/**")
+                .excludePathPatterns("/login", "/login.html", "/login1");
+
     }
 }
