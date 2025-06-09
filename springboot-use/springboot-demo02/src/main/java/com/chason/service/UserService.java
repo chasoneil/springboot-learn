@@ -7,4 +7,6 @@ public interface UserService {
 
     List<User> findAllUsers();
 
+    int delete(int uid);
+
 }

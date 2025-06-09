@@ -8,4 +8,8 @@
     <select id="selectAllUsers" resultType="User">
         select * from tbl_user
     </select>
+
+    <delete id="deleteUser">
+        delete from tbl_user where uid = #{uid}
+    </delete>
 </mapper>
