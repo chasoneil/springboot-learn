@@ -4,3 +4,7 @@
 * 默认的异常页面 error.html (不需要配置)
 * 局部异常处理
 * 全局异常处理
+
+2. Springboot 认证 Validation
+
+* 使用Validation进行认证
