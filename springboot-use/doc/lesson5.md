@@ -14,3 +14,9 @@
   * swagger : http://localhost:8080/swagger-ui/index.html
   * json : http://localhost:8080/v3/api-docs
   * yaml : http://localhost:8080/v3/api-docs.yaml
+
+3. Springboot 整合单元测试Junit5
+
+* 普通的测试
+* 测试controller
+* 解决单元测试中的中文乱码问题
