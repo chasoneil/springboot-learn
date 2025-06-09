@@ -27,8 +27,16 @@ spring:
         allow: 127.0.0.1    # IP白名单
         reset-enable: false
         enabled: true
+  # banner的配置
   main:
     banner-mode: off #关闭banner
+  # 热部署的配置
+  devtools:
+    restart:
+      enabled: true   # 开启热部署
+      additional-paths: /src/main/java  #该路径下的东西如果修改就会触发热部署
+      exclude: WEB-INF/**     # 不需要热部署管理
+      # 最后要在idea中设置自动编译，才会触发热部署
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml

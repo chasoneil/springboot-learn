@@ -12,3 +12,7 @@
 * 其实springboot已经集成了logback日志组件，只需要在配置文件中配置即可
 * 如果希望更精确的控制日志，例如按天生成日志，备份等，需要在resources下新建logback.xml文件，配置日志的情况
 
+5. Springboot 热部署
+
+* 通过DevTools实现热部署
+
