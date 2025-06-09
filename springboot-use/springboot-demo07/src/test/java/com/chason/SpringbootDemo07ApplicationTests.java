@@ -1,6 +1,7 @@
 package com.chason;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.chason.pojo.User;
 import com.chason.service.UserService;
 import org.junit.jupiter.api.Test;
@@ -113,6 +114,28 @@ class SpringbootDemo07ApplicationTests {
         } else {
             System.out.println("删除用户失败");
         }
+    }
+
+    /* 测试分页 */
+    @Test
+    void test08() {
+
+        // 创建分页的基本参数类 类似设置pageNum pageSize
+        Page<User> userPage = new Page<>(1, 3);
+
+        // 分页的查询条件
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+
+        Page<User> page = userService.page(userPage, wrapper);
+        List<User> users = page.getRecords();
+        for (User user : users) {
+            System.out.println(user.getName());
+        }
+
+        System.out.println("总页数:" + page.getPages());
+        System.out.println("总记录数:" + page.getTotal());
+        System.out.println("当前页码:" + page.getCurrent());
+        System.out.println("每页数据:" + page.getSize());
     }
 
 }
